@@ -1,37 +1,46 @@
 <template>
   <div>
-    <nav class="navbar navbar-light navbar-expand-lg fixed-top" id="mainNav">
-        <div class="container"><a class="navbar-brand">V8</a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
-            <div
-                class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item" role="presentation"><router-link :to="{name: 'inicio'}">portada</router-link></li>
-                    <li class="nav-item" role="presentation"><router-link :to="{name: 'sobremi'}">sobre mí</router-link></li>
-                    <li class="nav-item" role="presentation"><router-link :to="{name: 'contacto'}">contacto</router-link></li>
-                    <li class="nav-item" role="presentation"><router-link to="/post/1">último post</router-link></li>
-                </ul>
-        </div>
-        </div>
-    </nav>
+    <Navbar />
+    <Header
+      v-if="$route.meta.header"
+      :title="$route.meta.title"
+      :subTitle="$route.meta.subTitle"
+      :backgroundimage="$route.meta.backgroundimage"
+      :siteHeading="$route.meta.siteHeading"
+    />
+
+    <!-- ROUTER VIEW QUE CARGARÁ LAS VISTAS (INICIO, SOBRE MÍ, CONTACTO, ETC.) -->
     <router-view></router-view>
+
+    <Footer />
   </div>
-  
 </template>
 
 <script>
+import Navbar from "./components/Navbar.vue";
+import Footer from "./components/Footer.vue";
+import Header from "./components/Header.vue";
 
 export default {
-
-}
+  name: "App",
+  components: {
+    Navbar,
+    Footer,
+    Header,
+  },
+};
 </script>
 
-<style>
+<style scoped>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+#menu-v8 a {
+  text-shadow: 1px 1px #000;
 }
 </style>
