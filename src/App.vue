@@ -10,7 +10,12 @@
     />
 
     <!-- ROUTER VIEW QUE CARGARÁ LAS VISTAS (INICIO, SOBRE MÍ, CONTACTO, ETC.) -->
-    <router-view></router-view>
+    <!-- <router-view ></router-view> -->
+
+    <transition name="mi-transicion" mode="out-in">
+      <!-- <transition name="mi-transicion" mode="in-out"> -->
+      <router-view></router-view>
+    </transition>
 
     <Footer />
   </div>
@@ -42,5 +47,16 @@ export default {
 }
 #menu-v8 a {
   text-shadow: 1px 1px #000;
+}
+
+.mi-transicion-enter-active,
+.mi-transicion-leave-active {
+  /* imperceptible: */
+  /* transition: opacity 0.1s; */
+  transition: opacity 0.5s;
+}
+.mi-transicion-enter,
+.mi-transicion-leave-to {
+  opacity: 0;
 }
 </style>
