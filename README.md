@@ -1,4 +1,17 @@
-# v8blog2ndpart
+# V8 Cars blog 
+
+### lazy props example with vue
+
+Using:
+- vue
+- bootstrap
+- jquery
+- (not my design)
+- (runs on node 10.24.1)
+
+* keeping for review router purposes - not deploy
+
+--------------------
 
 ## Project setup
 ```
